@@ -1,6 +1,8 @@
 <template>
   <el-container>
-    <el-header></el-header>
+    <el-header>
+      <h1>不知道干嘛好的登录页</h1>
+    </el-header>
     <el-main>
       <div class="login-form">
         <el-form :model="login">
@@ -19,7 +21,9 @@
         </el-form>
       </div>
     </el-main>
-    <el-footer></el-footer>
+    <el-footer>
+      <el-button @click="goDices" type="text">骰子在这里</el-button>
+    </el-footer>
   </el-container>
 </template>
 <script>
@@ -42,6 +46,9 @@ export default {
     //TODO 假登录
     doLogin() {
       console.log(this.login.userName + ' ' + this.login.pwd)
+    },
+    goDices() {
+      this.$router.push({ path: "/dices" });
     }
   }
 };
