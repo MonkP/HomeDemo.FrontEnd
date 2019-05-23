@@ -10,7 +10,17 @@ module.exports = {
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {},
+    //反向代理路径，用于前后端分离调试
+    proxyTable: {
+      '/': {
+        // 测试环境
+        target: 'http://127.0.0.1:8888', // 接口域名，改为实际的后端运行时接口
+        changeOrigin: true, // 是否跨域
+        pathRewrite: {
+          '^/api': '' // 需要rewrite重写的,键为代码中请求的接口，值为映射后的地址
+        }
+      }
+    },
 
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST
