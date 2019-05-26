@@ -13,8 +13,8 @@ export default new Router({
       component: Login
     },
     {
-      path: '/dices',
-      name: 'Dices',
+      path: '/timing',
+      name: 'Timing',
       component: HelloWorld
     }
   ]

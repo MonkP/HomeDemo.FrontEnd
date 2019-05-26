@@ -22,7 +22,7 @@
       </div>
     </el-main>
     <el-footer>
-      <el-button @click="goDices" type="text">骰子在这里</el-button>
+      <el-button @click="goDices" type="text">乖乖点这里</el-button>
     </el-footer>
   </el-container>
 </template>
@@ -48,7 +48,7 @@ export default {
       console.log(this.login.userName + ' ' + this.login.pwd)
     },
     goDices() {
-      this.$router.push({ path: "/dices" });
+      this.$router.push({ path: "/timing" });
     }
   }
 };

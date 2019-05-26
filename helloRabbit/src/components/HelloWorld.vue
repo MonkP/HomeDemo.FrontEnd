@@ -1,13 +1,47 @@
 <template>
-  <div class="">这是兔兔的页面</div>
+  <body>
+    <h1>This is Rabbit's page</h1>
+    <div id="time">{{ today }}</div>
+    <div>今天是兔兔和小乖认识的第<span class="days">{{ getDays }}</span>天</div>
+    <div>婚礼倒计时<span class="marryDays">{{ getMarryDays }}</span>天</div>
+    <button v-on:click="getTime">点我</button>
+  </body>
 </template>
 
 <script>
+import { setInterval } from 'timers';
+
 export default {
   name: 'HelloWorld',
-  data () {
-    return {
-      msg: 'Welcome to Your Vue.js App'
+  data(){
+    return{
+      today:new Date().toLocaleString(),
+    }
+  },
+  computed:{
+      getToday:function(){
+        let date = new Date();
+        return date.toLocaleString();
+        //return date.getFullYear()+"年"+(date.getMonth()+1)+"月"+date.getDate()+"日";
+      },
+      getDays:function(){
+        let dayStart = new Date("2011/10/11");
+        let today = new Date();
+        let days = Math.ceil((today-dayStart) / (24 * 60 * 60 * 1000));
+        return days;
+      },
+      getMarryDays:function(){
+        let dayStart = new Date("2020/10/06");
+        let today = new Date();
+        let days = Math.ceil((dayStart -  today) / (24 * 60 * 60 * 1000));
+        return days;
+      }
+  },
+  methods:{
+    getTime:function(){
+      setInterval(function(){
+        this.today = new Date().toLocaleString();
+      },1000)
     }
   }
 }
@@ -15,26 +49,20 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.dice{
-  width: 99px;
-  height: 99px;
-  border: 1px solid #AAAAAA;
-  border-radius: 9px;
-  display:flex;
-  flex-direction: column;
-  justify-content: space-between;
+div{
+  margin-top: 10px;
+  font-size:20px;
+  font-family: 微软雅黑;
 }
-.row{
-  width:100%;
-  height:100%;
-  display:flex;
-  justify-content: space-between;
-  align-items: center;
+.days{
+  font-size: 30px;
+  color:red;
+  font-weight: bold;
 }
-.points{
-  width: 14px;
-  height:14px;
-  background-color:black;
-  border-radius: 7px;
+.marryDays{
+  font-size: 30px;
+  color:green;
+  font-weight: bold;
 }
+
 </style>
