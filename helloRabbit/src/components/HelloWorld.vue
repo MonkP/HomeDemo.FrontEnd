@@ -1,22 +1,5 @@
 <template>
-  <div class="dice">
-    <div class="row">
-      <div class="points">
-      </div>
-      <div class="points">
-      </div>
-      <div class="points">
-      </div>
-    </div>
-    <div class="row">
-      <div class="points">
-      </div>
-      <div class="points">
-      </div>
-      <div class="points">
-      </div>
-    </div>
-  </div>
+  <div class="">这是兔兔的页面</div>
 </template>
 
 <script>
